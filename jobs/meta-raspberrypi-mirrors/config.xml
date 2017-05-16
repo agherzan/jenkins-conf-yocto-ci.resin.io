@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <project>
-  <description>Sync all the meta-raspberrypi mirrors on github SCM change</description>
+  <description>Sync all the meta-raspberrypi mirrors on every github SCM change</description>
   <keepDependencies>false</keepDependencies>
   <properties>
     <jenkins.model.BuildDiscarderProperty>
@@ -27,7 +27,7 @@
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
-        <url>https://github.com/agherzan/meta-raspberrypi</url>
+        <url>git@github.com:agherzan/meta-raspberrypi.git</url>
         <credentialsId>e30dda31-140d-42b3-8d4c-d421d65078ca</credentialsId>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
@@ -50,8 +50,13 @@
     <hudson.tasks.Shell>
       <command>#!/bin/bash
 
-git clone --mirror git@github.com:agherzan/meta-raspberrypi.git
-cd meta-raspberrypi
+set -ex
+
+# Main repository clone
+git clone --mirror git@github.com:agherzan/meta-raspberrypi.git meta-raspberrypi-main
+cd meta-raspberrypi-main
+
+# Mirror to Bitbucket
 git push --mirror git@bitbucket.org:agherzan/meta-raspberrypi.git
 </command>
     </hudson.tasks.Shell>
@@ -63,5 +68,16 @@ git push --mirror git@bitbucket.org:agherzan/meta-raspberrypi.git
       <cleanupParameter></cleanupParameter>
       <externalDelete></externalDelete>
     </hudson.plugins.ws__cleanup.PreBuildCleanup>
+    <com.cloudbees.jenkins.plugins.sshagent.SSHAgentBuildWrapper plugin="ssh-agent@1.15">
+      <credentialIds>
+        <string>e30dda31-140d-42b3-8d4c-d421d65078ca</string>
+      </credentialIds>
+      <ignoreMissing>false</ignoreMissing>
+    </com.cloudbees.jenkins.plugins.sshagent.SSHAgentBuildWrapper>
+    <org.jenkinsci.plugins.buildnamesetter.BuildNameSetter plugin="build-name-setter@1.6.5">
+      <template>#${BUILD_NUMBER}-${GIT_BRANCH}</template>
+      <runAtStart>true</runAtStart>
+      <runAtEnd>true</runAtEnd>
+    </org.jenkinsci.plugins.buildnamesetter.BuildNameSetter>
   </buildWrappers>
 </project>
