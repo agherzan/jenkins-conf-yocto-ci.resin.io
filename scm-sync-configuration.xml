@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<hudson.plugins.scm__sync__configuration.ScmSyncConfigurationPlugin version="1">
+  <scm class="hudson.plugins.scm_sync_configuration.scms.ScmSyncNoSCM"/>
+  <noUserCommitMessage>false</noUserCommitMessage>
+  <displayStatus>true</displayStatus>
+  <commitMessagePattern>Jenkins Configuration: [message]</commitMessagePattern>
+  <manualSynchronizationIncludes/>
+</hudson.plugins.scm__sync__configuration.ScmSyncConfigurationPlugin>
