@@ -32,7 +32,7 @@
     <hudson.model.AllView>
       <owner class="hudson" reference="../../.."/>
       <name>all</name>
-      <description></description>
+      <description>All jobs available.</description>
       <filterExecutors>false</filterExecutors>
       <filterQueue>false</filterQueue>
       <properties class="hudson.model.View$PropertyList"/>
