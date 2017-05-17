@@ -64,6 +64,10 @@ cd meta-raspberrypi-main
 
 # Mirror to Bitbucket
 git push --mirror git@bitbucket.org:agherzan/meta-raspberrypi.git
+
+# Mirror to Poky
+git push --mirrir git://git.yoctoproject.org/meta-raspberrypi
+
 </command>
     </hudson.tasks.Shell>
   </builders>
