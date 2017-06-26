@@ -1,0 +1,220 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>Build SD card raw images for supported meta-raspberrypi images/machines.</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <jenkins.model.BuildDiscarderProperty>
+      <strategy class="hudson.tasks.LogRotator">
+        <daysToKeep>-1</daysToKeep>
+        <numToKeep>-1</numToKeep>
+        <artifactDaysToKeep>-1</artifactDaysToKeep>
+        <artifactNumToKeep>10</artifactNumToKeep>
+      </strategy>
+    </jenkins.model.BuildDiscarderProperty>
+    <com.chikli.hudson.plugin.naginator.NaginatorOptOutProperty plugin="naginator@1.17.2">
+      <optOut>false</optOut>
+    </com.chikli.hudson.plugin.naginator.NaginatorOptOutProperty>
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.25">
+      <autoRebuild>false</autoRebuild>
+      <rebuildDisabled>false</rebuildDisabled>
+    </com.sonyericsson.rebuild.RebuildSettings>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>BUILD_BRANCH</name>
+          <description>Branch to build</description>
+          <defaultValue>master</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>BUILD_DEPS_BRANCH</name>
+          <description>Branch to be used for checking out the meta-raspberrypi layer dependencies (ex. poky, meta-oe etc.)</description>
+          <defaultValue>master</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>BUILD_MACHINE</name>
+          <description>Available machine configurations provided by the meta-raspberrypi Yocto BSP layer</description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>raspberrypi</string>
+              <string>raspberrypi0</string>
+              <string>raspberrypi0-wifi</string>
+              <string>raspberrypi2</string>
+              <string>raspberrypi3</string>
+              <string>raspberrypi3-64</string>
+              <string>raspberrypi-cm</string>
+              <string>raspberrypi-cm3</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>BUILD_IMAGE</name>
+          <description>Yocto images provided by the meta-raspberrypi Yocto BSP layer</description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>rpi-basic-image</string>
+              <string>rpi-hwup-image</string>
+              <string>rpi-test-image</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>sha1</name>
+          <description>https://github.com/jenkinsci/ghprb-plugin/issues/326</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>ghprbActualCommit</name>
+          <description>https://github.com/jenkinsci/ghprb-plugin/issues/326</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>ghprbAuthorRepoGitUrl</name>
+          <description>https://github.com/jenkinsci/ghprb-plugin/issues/326</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>ghprbCredentialsId</name>
+          <description>https://github.com/jenkinsci/ghprb-plugin/issues/326</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>ghprbPullId</name>
+          <description>https://github.com/jenkinsci/ghprb-plugin/issues/326</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>ghprbGhRepository</name>
+          <description>https://github.com/jenkinsci/ghprb-plugin/issues/326</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>ghprbSourceBranch</name>
+          <description>https://github.com/jenkinsci/ghprb-plugin/issues/326</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>ghprbTargetBranch</name>
+          <description>https://github.com/jenkinsci/ghprb-plugin/issues/326</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.3.0">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <refspec>+refs/heads/*:refs/remotes/origin/* +refs/pull/*:refs/remotes/origin/pr/* </refspec>
+        <url>https://github.com/agherzan/meta-raspberrypi.git</url>
+        <credentialsId>616afc1f-5083-4ed8-901c-3eb61524a611</credentialsId>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>${BUILD_BRANCH}</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions>
+      <hudson.plugins.git.extensions.impl.RelativeTargetDirectory>
+        <relativeTargetDir>meta-raspberrypi</relativeTargetDir>
+      </hudson.plugins.git.extensions.impl.RelativeTargetDirectory>
+    </extensions>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>#!/bin/bash
+
+set -ex
+
+# Create build conf samples
+mkdir -p samples
+
+# local.conf
+cat &gt;  samples/local.conf.sample &lt;&lt; &apos;EOF&apos;
+DL_DIR = &quot;/yocto/shared-downloads&quot;
+SSTATE_DIR = &quot;/yocto/shared-sstate&quot;
+LICENSE_FLAGS_WHITELIST = &quot;commercial&quot;
+ENABLE_UART = &quot;1&quot;
+DISTRO ?= &quot;poky&quot;
+PACKAGE_CLASSES ?= &quot;package_rpm&quot;
+EXTRA_IMAGE_FEATURES ?= &quot;debug-tweaks&quot;
+USER_CLASSES ?= &quot;buildstats image-mklibs image-prelink&quot;
+PATCHRESOLVE = &quot;noop&quot;
+BB_DISKMON_DIRS = &quot;\
+    STOPTASKS,${TMPDIR},1G,100K \
+    STOPTASKS,${DL_DIR},1G,100K \
+    STOPTASKS,${SSTATE_DIR},1G,100K \
+    STOPTASKS,/tmp,100M,100K \
+    ABORT,${TMPDIR},100M,1K \
+    ABORT,${DL_DIR},100M,1K \
+    ABORT,${SSTATE_DIR},100M,1K \
+    ABORT,/tmp,10M,1K&quot;
+CONF_VERSION = &quot;1&quot;
+EOF
+
+# bblayers.conf
+cat &gt;  samples/bblayers.conf.sample &lt;&lt; &apos;EOF&apos;
+# POKY_BBLAYERS_CONF_VERSION is increased each time build/conf/bblayers.conf
+# changes incompatibly
+POKY_BBLAYERS_CONF_VERSION = &quot;2&quot;
+BBPATH = &quot;${TOPDIR}&quot;
+BBFILES ?= &quot;&quot;
+BBLAYERS ?= &quot; \
+  ##OEROOT##/meta \
+  ##OEROOT##/meta-poky \
+  ##OEROOT##/meta-yocto-bsp \
+  ##OEROOT##/../meta-raspberrypi \
+  ##OEROOT##/../meta-openembedded/meta-oe \
+  ##OEROOT##/../meta-openembedded/meta-multimedia \
+  ##OEROOT##/../meta-openembedded/meta-networking \
+  ##OEROOT##/../meta-openembedded/meta-python \
+  &quot;
+EOF
+
+# meta-raspberrypi dependencies
+if [ ! -d poky ]; then
+	git clone git://git.yoctoproject.org/poky poky
+fi
+(cd poky &amp;&amp; git fetch --all &amp;&amp; git reset --hard origin/${BUILD_DEPS_BRANCH})
+if [ ! -d meta-openembedded ]; then
+    git clone git://git.openembedded.org/meta-openembedded meta-openembedded
+fi
+(cd meta-openembedded &amp;&amp; git fetch --all &amp;&amp; git reset --hard origin/${BUILD_DEPS_BRANCH})
+
+echo &quot;Removing old build... Can take a while...&quot;
+rm -rf build
+
+export TEMPLATECONF=${WORKSPACE}/samples
+source ./poky/oe-init-build-env build
+MACHINE=${BUILD_MACHINE} bitbake ${BUILD_IMAGE}
+
+# Artifacts
+cd ${WORKSPACE}
+rm -rf ./deploy
+mkdir -p ./deploy
+pigz -k build/tmp/deploy/images/${BUILD_MACHINE}/$(readlink build/tmp/deploy/images/${BUILD_MACHINE}/${BUILD_IMAGE}-${BUILD_MACHINE}.rpi-sdimg)
+find ./build/tmp/deploy/images/${BUILD_MACHINE} -name &quot;*.gz&quot; -exec cp {} ./deploy \;
+</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers>
+    <hudson.tasks.ArtifactArchiver>
+      <artifacts>deploy/*</artifacts>
+      <allowEmptyArchive>false</allowEmptyArchive>
+      <onlyIfSuccessful>true</onlyIfSuccessful>
+      <fingerprint>false</fingerprint>
+      <defaultExcludes>true</defaultExcludes>
+      <caseSensitive>true</caseSensitive>
+    </hudson.tasks.ArtifactArchiver>
+  </publishers>
+  <buildWrappers/>
+</project>
