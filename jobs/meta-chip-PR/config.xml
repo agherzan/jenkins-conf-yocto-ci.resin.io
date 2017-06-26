@@ -71,21 +71,21 @@
       <extensions>
         <org.jenkinsci.plugins.ghprb.extensions.status.GhprbSimpleStatus>
           <commitStatusContext>Build pull request</commitStatusContext>
-          <triggeredStatus>⚙️ Triggering &quot;basic&quot; raspberries ...</triggeredStatus>
-          <startedStatus>⚙️ Checking &quot;basic&quot; raspberries&apos; mood ...</startedStatus>
+          <triggeredStatus>⚙️ Triggering &quot;basic&quot; chips ...</triggeredStatus>
+          <startedStatus>⚙️ Checking &quot;basic&quot; chips&apos; mood ...</startedStatus>
           <statusUrl></statusUrl>
           <addTestResults>false</addTestResults>
           <completedStatus>
             <org.jenkinsci.plugins.ghprb.extensions.comments.GhprbBuildResultMessage>
-              <message>All &quot;basic&quot; raspberries were ☺️</message>
+              <message>All &quot;basic&quot; chips were ☺️</message>
               <result>SUCCESS</result>
             </org.jenkinsci.plugins.ghprb.extensions.comments.GhprbBuildResultMessage>
             <org.jenkinsci.plugins.ghprb.extensions.comments.GhprbBuildResultMessage>
-              <message>Some &quot;basic&quot; raspberries were 😒</message>
+              <message>Some &quot;basic&quot; chips were 😒</message>
               <result>ERROR</result>
             </org.jenkinsci.plugins.ghprb.extensions.comments.GhprbBuildResultMessage>
             <org.jenkinsci.plugins.ghprb.extensions.comments.GhprbBuildResultMessage>
-              <message>Some &quot;basic&quot; raspberries were 😞</message>
+              <message>Some &quot;basic&quot; chips were 😞</message>
               <result>FAILURE</result>
             </org.jenkinsci.plugins.ghprb.extensions.comments.GhprbBuildResultMessage>
           </completedStatus>
