@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <project>
   <actions/>
-  <description>Build SD card raw images for RaspberryPi 1</description>
+  <description>Build SD card raw images for Chip</description>
   <keepDependencies>false</keepDependencies>
   <properties>
     <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.27.0">
-      <projectUrl>https://github.com/agherzan/meta-raspberrypi/</projectUrl>
+      <projectUrl>https://github.com/agherzan/meta-chip/</projectUrl>
       <displayName></displayName>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
     <com.chikli.hudson.plugin.naginator.NaginatorOptOutProperty plugin="naginator@1.17.2">
@@ -24,26 +24,24 @@
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>BUILD_DEPS_BRANCH</name>
-          <description>Branch to be used for checking out the meta-raspberrypi layer dependencies (ex. poky, meta-oe etc.)</description>
+          <description>Branch to be used for checking out the meta-chip layer dependencies (ex. poky, meta-oe etc.)</description>
           <defaultValue>master</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.ChoiceParameterDefinition>
           <name>BUILD_MACHINE</name>
-          <description>Available machine configurations provided by the meta-raspberrypi Yocto BSP layer</description>
+          <description>Available machine configurations provided by the meta-chip Yocto BSP layer</description>
           <choices class="java.util.Arrays$ArrayList">
             <a class="string-array">
-              <string>raspberrypi</string>
+              <string>chip</string>
             </a>
           </choices>
         </hudson.model.ChoiceParameterDefinition>
         <hudson.model.ChoiceParameterDefinition>
           <name>BUILD_IMAGE</name>
-          <description>Yocto images provided by the meta-raspberrypi Yocto BSP layer</description>
+          <description>Yocto images provided by the meta-chip Yocto BSP layer</description>
           <choices class="java.util.Arrays$ArrayList">
             <a class="string-array">
-              <string>rpi-basic-image</string>
-              <string>rpi-hwup-image</string>
-              <string>rpi-test-image</string>
+              <string>chip-hwup-image</string>
             </a>
           </choices>
         </hudson.model.ChoiceParameterDefinition>
@@ -64,7 +62,7 @@
           <configs>
             <hudson.plugins.parameterizedtrigger.CurrentBuildParameters/>
           </configs>
-          <projects>meta-raspberrypi-generic</projects>
+          <projects>meta-chip-generic</projects>
           <condition>ALWAYS</condition>
           <triggerWithNoParameters>false</triggerWithNoParameters>
           <triggerFromChildProjects>false</triggerFromChildProjects>
@@ -97,22 +95,22 @@
   <buildWrappers>
     <org.jenkinsci.plugins.ghprb.upstream.GhprbUpstreamStatus plugin="ghprb@1.37.0">
       <showMatrixStatus>false</showMatrixStatus>
-      <commitStatusContext>raspberrypi1</commitStatusContext>
-      <triggeredStatus>⚙ Preparing a new raspberry ...</triggeredStatus>
-      <startedStatus>⚙️ Baking a new raspberry ...</startedStatus>
+      <commitStatusContext>chip</commitStatusContext>
+      <triggeredStatus>⚙ Preparing a new chip ...</triggeredStatus>
+      <startedStatus>⚙️ Baking a new chip ...</startedStatus>
       <statusUrl></statusUrl>
       <addTestResults>false</addTestResults>
       <completedStatus>
         <org.jenkinsci.plugins.ghprb.extensions.comments.GhprbBuildResultMessage>
-          <message>I baked a happy raspberry</message>
+          <message>I baked a happy chip</message>
           <result>SUCCESS</result>
         </org.jenkinsci.plugins.ghprb.extensions.comments.GhprbBuildResultMessage>
         <org.jenkinsci.plugins.ghprb.extensions.comments.GhprbBuildResultMessage>
-          <message>I baked a sad raspberry</message>
+          <message>I baked a sad chip</message>
           <result>ERROR</result>
         </org.jenkinsci.plugins.ghprb.extensions.comments.GhprbBuildResultMessage>
         <org.jenkinsci.plugins.ghprb.extensions.comments.GhprbBuildResultMessage>
-          <message>I baked a crying raspberry</message>
+          <message>I baked a crying chip</message>
           <result>FAILURE</result>
         </org.jenkinsci.plugins.ghprb.extensions.comments.GhprbBuildResultMessage>
       </completedStatus>
