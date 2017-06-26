@@ -162,12 +162,17 @@ BBLAYERS ?= &quot; \
   ##OEROOT##/meta-poky \
   ##OEROOT##/meta-yocto-bsp \
   ##OEROOT##/../meta-chip \
+  ##OEROOT##/../meta-sunxi \
   &quot;
 EOF
 
 # meta-chip dependencies
 if [ ! -d poky ]; then
 	git clone git://git.yoctoproject.org/poky poky
+fi
+(cd poky &amp;&amp; git fetch --all &amp;&amp; git reset --hard origin/${BUILD_DEPS_BRANCH})
+if [ ! -d poky ]; then
+	git clone git://github.com/linux-sunxi/meta-sunxi.git meta-sunxi
 fi
 (cd poky &amp;&amp; git fetch --all &amp;&amp; git reset --hard origin/${BUILD_DEPS_BRANCH})
 
