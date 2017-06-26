@@ -171,10 +171,10 @@ if [ ! -d poky ]; then
 	git clone git://git.yoctoproject.org/poky poky
 fi
 (cd poky &amp;&amp; git fetch --all &amp;&amp; git reset --hard origin/${BUILD_DEPS_BRANCH})
-if [ ! -d poky ]; then
+if [ ! -d meta-sunxi ]; then
 	git clone git://github.com/linux-sunxi/meta-sunxi.git meta-sunxi
 fi
-(cd poky &amp;&amp; git fetch --all &amp;&amp; git reset --hard origin/${BUILD_DEPS_BRANCH})
+(cd meta-sunxi &amp;&amp; git fetch --all &amp;&amp; git reset --hard origin/${BUILD_DEPS_BRANCH})
 
 echo &quot;Removing old build... Can take a while...&quot;
 rm -rf build
