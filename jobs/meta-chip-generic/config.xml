@@ -182,7 +182,7 @@ MACHINE=${BUILD_MACHINE} bitbake ${BUILD_IMAGE}
 cd ${WORKSPACE}
 rm -rf ./deploy
 mkdir -p ./deploy
-pigz -k build/tmp/deploy/images/${BUILD_MACHINE}/$(readlink build/tmp/deploy/images/${BUILD_MACHINE}/${BUILD_IMAGE}-${BUILD_MACHINE}.rpi-sdimg)
+pigz -k build/tmp/deploy/images/${BUILD_MACHINE}/$(readlink build/tmp/deploy/images/${BUILD_MACHINE}/${BUILD_IMAGE}-${BUILD_MACHINE}.ubi)
 find ./build/tmp/deploy/images/${BUILD_MACHINE} -name &quot;*.gz&quot; -exec cp {} ./deploy \;
 </command>
     </hudson.tasks.Shell>
