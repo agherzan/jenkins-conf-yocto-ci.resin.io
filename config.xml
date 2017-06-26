@@ -63,7 +63,7 @@
     <listView>
       <owner class="hudson" reference="../../.."/>
       <name>meta-chip</name>
-      <description>&lt;p&gt;Various Jobs for maintaining&amp;nbsp;&lt;a title=&quot;meta-raspberrypi&quot; href=&quot;https://github.com/agherzan/meta-chip&quot; target=&quot;_blank&quot;&gt;meta-raspberrypi&lt;/a&gt;&amp;nbsp;Yocto BSP layer&lt;/p&gt;</description>
+      <description>&lt;p&gt;Various Jobs for maintaining&amp;nbsp;&lt;a title=&quot;meta-chip&quot; href=&quot;https://github.com/agherzan/meta-chip&quot; target=&quot;_blank&quot;&gt;meta-raspberrypi&lt;/a&gt;&amp;nbsp;Yocto BSP layer&lt;/p&gt;</description>
       <filterExecutors>false</filterExecutors>
       <filterQueue>false</filterQueue>
       <properties class="hudson.model.View$PropertyList"/>
