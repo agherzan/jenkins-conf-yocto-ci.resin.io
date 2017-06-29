@@ -65,8 +65,11 @@
       <gitHubAuthId>2aa1e445-34ed-40f7-8d13-67c9c9b15fb6</gitHubAuthId>
       <triggerPhrase></triggerPhrase>
       <skipBuildPhrase>.*\[skip\W+ci\].*</skipBuildPhrase>
+      <blackListCommitAuthor></blackListCommitAuthor>
       <blackListLabels></blackListLabels>
       <whiteListLabels></whiteListLabels>
+      <includedRegions></includedRegions>
+      <excludedRegions></excludedRegions>
       <extensions>
         <org.jenkinsci.plugins.ghprb.extensions.status.GhprbSimpleStatus>
           <commitStatusContext>Build pull request</commitStatusContext>
@@ -76,15 +79,15 @@
           <addTestResults>false</addTestResults>
           <completedStatus>
             <org.jenkinsci.plugins.ghprb.extensions.comments.GhprbBuildResultMessage>
-              <message>All &quot;basic&quot; raspberries were ☺️</message>
+              <message>All &quot;basic&quot; raspberries were happy</message>
               <result>SUCCESS</result>
             </org.jenkinsci.plugins.ghprb.extensions.comments.GhprbBuildResultMessage>
             <org.jenkinsci.plugins.ghprb.extensions.comments.GhprbBuildResultMessage>
-              <message>Some &quot;basic&quot; raspberries were 😒</message>
+              <message>Some &quot;basic&quot; raspberries were sad</message>
               <result>ERROR</result>
             </org.jenkinsci.plugins.ghprb.extensions.comments.GhprbBuildResultMessage>
             <org.jenkinsci.plugins.ghprb.extensions.comments.GhprbBuildResultMessage>
-              <message>Some &quot;basic&quot; raspberries were 😞</message>
+              <message>Some &quot;basic&quot; raspberries were crying</message>
               <result>FAILURE</result>
             </org.jenkinsci.plugins.ghprb.extensions.comments.GhprbBuildResultMessage>
           </completedStatus>
