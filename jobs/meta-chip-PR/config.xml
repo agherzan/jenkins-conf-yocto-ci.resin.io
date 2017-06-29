@@ -68,6 +68,8 @@
       <blackListCommitAuthor></blackListCommitAuthor>
       <blackListLabels></blackListLabels>
       <whiteListLabels></whiteListLabels>
+      <includedRegions></includedRegions>
+      <excludedRegions></excludedRegions>
       <extensions>
         <org.jenkinsci.plugins.ghprb.extensions.status.GhprbSimpleStatus>
           <commitStatusContext>Build pull request</commitStatusContext>
@@ -77,15 +79,15 @@
           <addTestResults>false</addTestResults>
           <completedStatus>
             <org.jenkinsci.plugins.ghprb.extensions.comments.GhprbBuildResultMessage>
-              <message>All &quot;basic&quot; chips were ☺️</message>
+              <message>All &quot;hwup&quot; chips were happy</message>
               <result>SUCCESS</result>
             </org.jenkinsci.plugins.ghprb.extensions.comments.GhprbBuildResultMessage>
             <org.jenkinsci.plugins.ghprb.extensions.comments.GhprbBuildResultMessage>
-              <message>Some &quot;basic&quot; chips were 😒</message>
+              <message>Some &quot;hwup&quot; chips were sad</message>
               <result>ERROR</result>
             </org.jenkinsci.plugins.ghprb.extensions.comments.GhprbBuildResultMessage>
             <org.jenkinsci.plugins.ghprb.extensions.comments.GhprbBuildResultMessage>
-              <message>Some &quot;basic&quot; chips were 😞</message>
+              <message>Some &quot;hwup&quot; chips were crying</message>
               <result>FAILURE</result>
             </org.jenkinsci.plugins.ghprb.extensions.comments.GhprbBuildResultMessage>
           </completedStatus>
