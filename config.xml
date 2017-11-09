@@ -1,6 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <hudson>
-  <disabledAdministrativeMonitors/>
+  <disabledAdministrativeMonitors>
+    <string>OldData</string>
+  </disabledAdministrativeMonitors>
   <version>2.60.3</version>
   <numExecutors>10</numExecutors>
   <mode>NORMAL</mode>
