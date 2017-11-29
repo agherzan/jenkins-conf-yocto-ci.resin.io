@@ -4,19 +4,19 @@
   <description>Github pull request builds triggerer</description>
   <keepDependencies>false</keepDependencies>
   <properties>
-    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.28.0">
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.28.1">
       <projectUrl>https://github.com/agherzan/meta-raspberrypi/</projectUrl>
       <displayName></displayName>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
     <com.chikli.hudson.plugin.naginator.NaginatorOptOutProperty plugin="naginator@1.17.2">
       <optOut>false</optOut>
     </com.chikli.hudson.plugin.naginator.NaginatorOptOutProperty>
-    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.25">
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.27">
       <autoRebuild>false</autoRebuild>
       <rebuildDisabled>false</rebuildDisabled>
     </com.sonyericsson.rebuild.RebuildSettings>
   </properties>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.5.1">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.6.4">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -49,7 +49,7 @@
       <onlyTriggerPhrase>false</onlyTriggerPhrase>
       <useGitHubHooks>false</useGitHubHooks>
       <permitAll>false</permitAll>
-      <whitelist> betafive kraj belzerus michal-mazurek schnitzeltony shr-project aurelian17 otavio</whitelist>
+      <whitelist> betafive kraj belzerus michal-mazurek schnitzeltony shr-project aurelian17 otavio koenkooi</whitelist>
       <autoCloseFailedPullRequests>false</autoCloseFailedPullRequests>
       <displayBuildErrorsOnDownstreamBuilds>false</displayBuildErrorsOnDownstreamBuilds>
       <whiteListTargetBranches>
@@ -97,7 +97,7 @@
   </triggers>
   <concurrentBuild>true</concurrentBuild>
   <builders>
-    <hudson.plugins.parameterizedtrigger.TriggerBuilder plugin="parameterized-trigger@2.35.1">
+    <hudson.plugins.parameterizedtrigger.TriggerBuilder plugin="parameterized-trigger@2.35.2">
       <configs>
         <hudson.plugins.parameterizedtrigger.BlockableBuildTriggerConfig>
           <configs>
@@ -106,6 +106,7 @@
               <properties>BUILD_BRANCH=${sha1}
 BUILD_DEPS_BRANCH=${ghprbTargetBranch}
 BUILD_IMAGE=rpi-basic-image</properties>
+              <textParamValueOnNewLine>false</textParamValueOnNewLine>
             </hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
           </configs>
           <projects>meta-raspberrypi-all</projects>
