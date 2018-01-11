@@ -41,7 +41,7 @@
     <org.jenkinsci.plugins.ghprb.GhprbTrigger plugin="ghprb@1.39.0">
       <spec>H/5 * * * *</spec>
       <configVersion>3</configVersion>
-      <adminlist>jenkins-ag agherzan</adminlist>
+      <adminlist>jenkins-ag agherzan betafive</adminlist>
       <allowMembersOfWhitelistedOrgsAsAdmin>false</allowMembersOfWhitelistedOrgsAsAdmin>
       <orgslist></orgslist>
       <cron>H/5 * * * *</cron>
