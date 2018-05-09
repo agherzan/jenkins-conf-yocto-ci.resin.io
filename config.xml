@@ -4,6 +4,10 @@
     <string>OldData</string>
   </disabledAdministrativeMonitors>
   <version>2.60.3</version>
+  <installState class="jenkins.install.InstallState$5">
+    <isSetupComplete>true</isSetupComplete>
+    <name>RESTART</name>
+  </installState>
   <numExecutors>10</numExecutors>
   <mode>NORMAL</mode>
   <useSecurity>true</useSecurity>
