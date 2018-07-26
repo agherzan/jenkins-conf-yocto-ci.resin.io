@@ -99,7 +99,7 @@
   <buildWrappers>
     <org.jenkinsci.plugins.ghprb.upstream.GhprbUpstreamStatus plugin="ghprb@1.40.0">
       <showMatrixStatus>false</showMatrixStatus>
-      <commitStatusContext>raspberrypi3</commitStatusContext>
+      <commitStatusContext>raspberrypi3-64</commitStatusContext>
       <triggeredStatus>⚙ Preparing a new raspberry ...</triggeredStatus>
       <startedStatus>⚙️ Baking a new raspberry ...</startedStatus>
       <statusUrl></statusUrl>
