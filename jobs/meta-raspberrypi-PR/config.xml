@@ -105,7 +105,7 @@
             <hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
               <properties>BUILD_BRANCH=${sha1}
 BUILD_DEPS_BRANCH=${ghprbTargetBranch}
-BUILD_IMAGE=rpi-basic-image</properties>
+BUILD_IMAGE=core-image-base</properties>
               <textParamValueOnNewLine>false</textParamValueOnNewLine>
             </hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
           </configs>
