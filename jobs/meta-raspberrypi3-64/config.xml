@@ -1,7 +1,7 @@
 <?xml version='1.1' encoding='UTF-8'?>
 <project>
   <actions/>
-  <description>Build SD card raw images for RaspberryPi 3</description>
+  <description>Build SD card raw images for RaspberryPi 3 64bit</description>
   <keepDependencies>false</keepDependencies>
   <properties>
     <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.29.0">
@@ -34,7 +34,7 @@
           <description>Available machine configurations provided by the meta-raspberrypi Yocto BSP layer</description>
           <choices class="java.util.Arrays$ArrayList">
             <a class="string-array">
-              <string>raspberrypi3</string>
+              <string>raspberrypi3-64</string>
             </a>
           </choices>
         </hudson.model.ChoiceParameterDefinition>
@@ -43,8 +43,8 @@
           <description>Yocto images provided by the meta-raspberrypi Yocto BSP layer</description>
           <choices class="java.util.Arrays$ArrayList">
             <a class="string-array">
-              <string>rpi-basic-image</string>
-              <string>rpi-hwup-image</string>
+              <string>core-image-minimal</string>
+              <string>core-image-base</string>
               <string>rpi-test-image</string>
             </a>
           </choices>
