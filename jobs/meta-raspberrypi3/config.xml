@@ -1,17 +1,17 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.1' encoding='UTF-8'?>
 <project>
   <actions/>
   <description>Build SD card raw images for RaspberryPi 3</description>
   <keepDependencies>false</keepDependencies>
   <properties>
-    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.27.0">
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.29.0">
       <projectUrl>https://github.com/agherzan/meta-raspberrypi/</projectUrl>
       <displayName></displayName>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
     <com.chikli.hudson.plugin.naginator.NaginatorOptOutProperty plugin="naginator@1.17.2">
       <optOut>false</optOut>
     </com.chikli.hudson.plugin.naginator.NaginatorOptOutProperty>
-    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.25">
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.28">
       <autoRebuild>false</autoRebuild>
       <rebuildDisabled>false</rebuildDisabled>
     </com.sonyericsson.rebuild.RebuildSettings>
@@ -21,11 +21,13 @@
           <name>BUILD_BRANCH</name>
           <description>Branch to build</description>
           <defaultValue>master</defaultValue>
+          <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>BUILD_DEPS_BRANCH</name>
           <description>Branch to be used for checking out the meta-raspberrypi layer dependencies (ex. poky, meta-oe etc.)</description>
           <defaultValue>master</defaultValue>
+          <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.ChoiceParameterDefinition>
           <name>BUILD_MACHINE</name>
@@ -41,8 +43,8 @@
           <description>Yocto images provided by the meta-raspberrypi Yocto BSP layer</description>
           <choices class="java.util.Arrays$ArrayList">
             <a class="string-array">
-              <string>rpi-basic-image</string>
-              <string>rpi-hwup-image</string>
+              <string>core-image-minimal</string>
+              <string>core-image-base</string>
               <string>rpi-test-image</string>
             </a>
           </choices>
@@ -58,7 +60,7 @@
   <triggers/>
   <concurrentBuild>false</concurrentBuild>
   <builders>
-    <hudson.plugins.parameterizedtrigger.TriggerBuilder plugin="parameterized-trigger@2.33">
+    <hudson.plugins.parameterizedtrigger.TriggerBuilder plugin="parameterized-trigger@2.35.2">
       <configs>
         <hudson.plugins.parameterizedtrigger.BlockableBuildTriggerConfig>
           <configs>
@@ -95,7 +97,7 @@
   </builders>
   <publishers/>
   <buildWrappers>
-    <org.jenkinsci.plugins.ghprb.upstream.GhprbUpstreamStatus plugin="ghprb@1.36.2">
+    <org.jenkinsci.plugins.ghprb.upstream.GhprbUpstreamStatus plugin="ghprb@1.40.0">
       <showMatrixStatus>false</showMatrixStatus>
       <commitStatusContext>raspberrypi3</commitStatusContext>
       <triggeredStatus>⚙ Preparing a new raspberry ...</triggeredStatus>
