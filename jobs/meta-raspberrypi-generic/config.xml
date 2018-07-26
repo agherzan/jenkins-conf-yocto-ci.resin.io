@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.1' encoding='UTF-8'?>
 <project>
   <actions/>
   <description>Build SD card raw images for supported meta-raspberrypi images/machines.</description>
@@ -15,7 +15,7 @@
     <com.chikli.hudson.plugin.naginator.NaginatorOptOutProperty plugin="naginator@1.17.2">
       <optOut>false</optOut>
     </com.chikli.hudson.plugin.naginator.NaginatorOptOutProperty>
-    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.25">
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.28">
       <autoRebuild>false</autoRebuild>
       <rebuildDisabled>false</rebuildDisabled>
     </com.sonyericsson.rebuild.RebuildSettings>
@@ -25,11 +25,13 @@
           <name>BUILD_BRANCH</name>
           <description>Branch to build</description>
           <defaultValue>master</defaultValue>
+          <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>BUILD_DEPS_BRANCH</name>
           <description>Branch to be used for checking out the meta-raspberrypi layer dependencies (ex. poky, meta-oe etc.)</description>
           <defaultValue>master</defaultValue>
+          <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.ChoiceParameterDefinition>
           <name>BUILD_MACHINE</name>
@@ -52,8 +54,8 @@
           <description>Yocto images provided by the meta-raspberrypi Yocto BSP layer</description>
           <choices class="java.util.Arrays$ArrayList">
             <a class="string-array">
-              <string>rpi-basic-image</string>
-              <string>rpi-hwup-image</string>
+              <string>core-image-minimal</string>
+              <string>core-image-base</string>
               <string>rpi-test-image</string>
             </a>
           </choices>
@@ -62,46 +64,54 @@
           <name>sha1</name>
           <description>https://github.com/jenkinsci/ghprb-plugin/issues/326</description>
           <defaultValue></defaultValue>
+          <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>ghprbActualCommit</name>
           <description>https://github.com/jenkinsci/ghprb-plugin/issues/326</description>
           <defaultValue></defaultValue>
+          <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>ghprbAuthorRepoGitUrl</name>
           <description>https://github.com/jenkinsci/ghprb-plugin/issues/326</description>
           <defaultValue></defaultValue>
+          <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>ghprbCredentialsId</name>
           <description>https://github.com/jenkinsci/ghprb-plugin/issues/326</description>
           <defaultValue></defaultValue>
+          <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>ghprbPullId</name>
           <description>https://github.com/jenkinsci/ghprb-plugin/issues/326</description>
           <defaultValue></defaultValue>
+          <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>ghprbGhRepository</name>
           <description>https://github.com/jenkinsci/ghprb-plugin/issues/326</description>
           <defaultValue></defaultValue>
+          <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>ghprbSourceBranch</name>
           <description>https://github.com/jenkinsci/ghprb-plugin/issues/326</description>
           <defaultValue></defaultValue>
+          <trim>false</trim>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>ghprbTargetBranch</name>
           <description>https://github.com/jenkinsci/ghprb-plugin/issues/326</description>
           <defaultValue></defaultValue>
+          <trim>false</trim>
         </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
   </properties>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.3.0">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.8.0">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
