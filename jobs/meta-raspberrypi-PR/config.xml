@@ -49,7 +49,7 @@
       <onlyTriggerPhrase>false</onlyTriggerPhrase>
       <useGitHubHooks>false</useGitHubHooks>
       <permitAll>false</permitAll>
-      <whitelist> betafive kraj belzerus michal-mazurek schnitzeltony shr-project aurelian17 otavio koenkooi hhromic pabigot mirzak manszigher drewmoseley nandra</whitelist>
+      <whitelist> betafive kraj belzerus michal-mazurek schnitzeltony shr-project aurelian17 otavio koenkooi hhromic pabigot mirzak manszigher drewmoseley nandra majorz</whitelist>
       <autoCloseFailedPullRequests>false</autoCloseFailedPullRequests>
       <displayBuildErrorsOnDownstreamBuilds>false</displayBuildErrorsOnDownstreamBuilds>
       <whiteListTargetBranches>
