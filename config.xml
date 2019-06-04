@@ -23,8 +23,8 @@
   <workspaceDir>${JENKINS_HOME}/workspace/${ITEM_FULLNAME}</workspaceDir>
   <buildsDir>${ITEM_ROOTDIR}/builds</buildsDir>
   <systemMessage>&lt;h3&gt;&lt;strong&gt;BUILD SERVER* for Opensource Yocto Projects&lt;/strong&gt;&lt;/h3&gt;&#xd;
-&lt;p&gt;&lt;em&gt;Administrator email&lt;/em&gt;: andrei [a] resin [dot] io&lt;/p&gt;&#xd;
-&lt;p&gt;* by&amp;nbsp;&lt;a title=&quot;resin.io&quot; href=&quot;https://resin.io/&quot; target=&quot;_blank&quot;&gt;resin.io&lt;/a&gt;&amp;nbsp;.&lt;/p&gt;</systemMessage>
+&lt;p&gt;&lt;em&gt;Administrator email&lt;/em&gt;: andrei [a] balena [dot] io&lt;/p&gt;&#xd;
+&lt;p&gt;* by&amp;nbsp;&lt;a title=&quot;balena.io&quot; href=&quot;https://resin.io/&quot; target=&quot;_blank&quot;&gt;resin.io&lt;/a&gt;&amp;nbsp;.&lt;/p&gt;</systemMessage>
   <markupFormatter class="hudson.markup.RawHtmlMarkupFormatter" plugin="antisamy-markup-formatter@1.5">
     <disableSyntaxHighlighting>false</disableSyntaxHighlighting>
   </markupFormatter>
