@@ -4,8 +4,7 @@
     <string>OldData</string>
   </disabledAdministrativeMonitors>
   <version>2.107.3</version>
-  <installState class="jenkins.install.InstallState$5">
-    <isSetupComplete>true</isSetupComplete>
+  <installState class="jenkins.install.InstallState$Restart">
     <name>RESTART</name>
   </installState>
   <numExecutors>30</numExecutors>
